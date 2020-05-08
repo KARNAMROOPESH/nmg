@@ -11,9 +11,11 @@ var bird, slingshot;
 var gameState = "onSling";
 var bg = "sprites/bg1.png";
 var score = 0;
+var sound;
 
 function preload() {
     getBackgroundImg();
+    sound = loadSound("fly.mp3");
 }
 
 function setup(){
@@ -90,11 +92,14 @@ function mouseDragged(){
 function mouseReleased(){
     slingshot.fly();
     gameState = "launched";
+    sound.play();
 }
 
 function keyPressed(){
     if(keyCode === 32){
+       Matter.Body.setPosition(bird.body,{x: 200 ,y: 50});
        slingshot.attach(bird.body);
+       bird.trajectory = [];
     }
 }
 
