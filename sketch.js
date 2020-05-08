@@ -12,11 +12,14 @@ var gameState = "onSling";
 var bg = "sprites/bg1.png";
 var score = 0;
 var sound;
+var sound1;
 
 function preload() {
     getBackgroundImg();
     sound = loadSound("fly.mp3");
+    sound1 = loadSound("g.mp3");
 }
+
 
 function setup(){
     var canvas = createCanvas(1200,400);
@@ -55,7 +58,22 @@ function draw(){
         noStroke();
         textSize(35)
         fill("white")
-        text("Score  " + score, width-300, 50)
+        text("Score  " + score, width-300, 50);
+
+        if( score > 390){
+                sound1.play()
+        }
+        if(score === 400){
+                 sound1.remove();
+                 
+        }
+
+        if(score === 400){
+            textSize(50)
+            fill("white")
+            text("YOU WIN" ,600,200);
+        }
+
     
     Engine.update(engine);
     //strokeWeight(4);
