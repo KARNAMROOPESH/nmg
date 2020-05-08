@@ -9,7 +9,7 @@ var backgroundImg,platform;
 var bird, slingshot;
 
 var gameState = "onSling";
-var bg = "sprites/bg1.png";
+var bg = "631.jpg";
 var score = 0;
 var sound;
 var sound1;
@@ -128,11 +128,11 @@ async function getBackgroundImg(){
     var datetime = responseJSON.datetime;
     var hour = datetime.slice(11,13);
     
-    if(hour>=0600 && hour<=1900){
-        bg = "sprites/bg1.png";
+    if(hour>=08 && hour<=15){
+        bg = "631.jpg";
     }
     else{
-        bg = "sprites/bg2.jpg";
+        bg = "h.jpg";
     }
 
     backgroundImg = loadImage(bg);
